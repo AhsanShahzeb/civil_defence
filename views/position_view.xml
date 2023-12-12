@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cd_position_view_search" model="ir.ui.view">
+        <field name="name">cd.position.view.search</field>
+        <field name="model">cd.position</field>
+        <field name="arch" type="xml">
+            <search string="cd_position_search">
+
+                <field name="designation" filter_domain="['|', ('designation', 'ilike', self), ('bps', 'ilike', self)]" string="Position"/>
+
+            </search>
+        </field>
+    </record>
+
+    <record id="cd_position_view_tree" model="ir.ui.view">
+        <field name="name">cd_position.view.tree</field>
+        <field name="model">cd.position</field>
+        <field name="arch" type="xml">
+            <tree string="cd_position_tree" sample="1">
+                <field name="designation" />
+                <field name="bps" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="cd_position_view_form" model="ir.ui.view">
+        <field name="name">cd_position.view.form</field>
+        <field name="model">cd.position</field>
+        <field name="arch" type="xml">
+            <form string="cd_position_form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="designation" style="text-transform: capitalize;" />
+                        </group>
+                        <group>
+                            <field name="bps" />
+                            <field name="active" invisible='1' />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cd_position_action" model="ir.actions.act_window">
+        <field name="name">Employee Position</field>
+        <field name="res_model">cd.position</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create Employee Position !!!</p>
+        </field>
+    </record>
+           
+    <menuitem
+        id="position_menu"
+        name="Position"
+        action="cd_position_action"
+        parent="employee_root_menu"
+        sequence="20"/>
+
+</odoo>

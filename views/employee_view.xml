@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cd_employee_view_tree" model="ir.ui.view">
+        <field name="name">cd.employee.view.tree</field>
+        <field name="model">cd.employee</field>
+        <field name="arch" type="xml">
+            <tree string="cd_employee__tree" sample='1'>
+                <field name="personal" />
+                <field name="name" />
+                <field name="cnic" />
+                <field name="mobile1" />
+                <field name="designation_id" />
+                <field name="bps" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="cd_employee_view_form" model="ir.ui.view">
+        <field name="name">cd.employee.view.form</field>
+        <field name="model">cd.employee</field>
+        <field name="arch" type="xml">
+            <form string="cd_employee__form">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="personal" />
+                            <field name="name"  />
+                            <field name="cnic" />
+                            <field name="designation_id" />
+                            <field name="bps" />
+                        </group>
+                        <group>
+                            <field name="father_name" />
+                            <field name="mobile1" />
+                            <field name="mobile2" />
+                            <field name="gender" />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="private_info" string="Private Information">
+                            <group>
+                                <group>
+                                    <field name="date_of_birth" />
+                                    <field name="joining_date" />
+                                    <field name="address" />
+                                </group>
+                                <group>
+                                    <field name="email" />
+                                    <field name="vendor" />
+                                    <field name="nationality" />
+                                    <field name="status" />
+                                </group>
+                            </group>
+                        </page>
+
+                        <page name="bank_info" string="Bank Information">
+                            <group>
+                                <group>
+                                    <field name="account" />
+                                    <field name="branch_code" />
+                                </group>
+                                <group>
+                                    <field name="bank_name" />
+                                    <field name="branch_address" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cd_employee_action" model="ir.actions.act_window">
+        <field name="name">Employee Information</field>
+        <field name="res_model">cd.employee</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create Employee Information !!!</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="cd_employee_menu"
+        name="Employee"
+        action="cd_employee_action"
+        parent="employee_root_menu"
+        sequence="10"/>
+
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem
+        id="civil_defence_root_menu"
+        name="Civil Defence"
+        sequence="10"/>
+    
+    <menuitem
+        id="employee_root_menu"
+        name="Employee Info"
+        parent="civil_defence_root_menu"
+        sequence="10"/>
+    
+</odoo>
