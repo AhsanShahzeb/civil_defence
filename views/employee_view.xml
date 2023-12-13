@@ -27,7 +27,7 @@
                             <field name="personal" />
                             <field name="name" class="text-capitalize" />
                             <field name="cnic" />
-                            <field name="designation_id" />
+                            <field name="designation_id" required='1'/>
                             <field name="bps" />
                         </group>
                         <group>

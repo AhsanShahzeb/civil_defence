@@ -14,6 +14,7 @@
         'views/office_view.xml',
         'views/position_view.xml',
         'views/employee_view.xml',
+        'reports/employee_report.xml',
     ],
     'demo': [],
     'auto_install': False,

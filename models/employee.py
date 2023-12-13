@@ -34,7 +34,7 @@ class CDEmployee(models.Model):
     ], string='Marital Status')
     address = fields.Text('Address')
     image = fields.Image()
-    designation_id = fields.Many2one('cd.position', string='Designation', required=True)
+    designation_id = fields.Many2one('cd.position', string='Designation')
     bps = fields.Char('BPS', related='designation_id.bps')
     children = fields.Char('Number of Children')
 
