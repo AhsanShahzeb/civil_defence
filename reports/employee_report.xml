@@ -3,10 +3,61 @@
 
     <template id="cd_employee_report_template">
         <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
+            <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
                     <div class="page">
-                        
+                        <table class="table table-striped table-bordered">
+
+                            <tr>
+                                <th>Personal #</th>
+                                <th t-if="doc.personal" t-esc="doc.personal" /><th t-else=""><span>-</span></th>
+                                <th>CNIC #</th>
+                                <th t-if="doc.cnic" t-esc="doc.cnic" /><th t-else=""><span>-</span></th>
+                            </tr>
+
+                            <tr>
+                                <th>Name</th>
+                                <th t-if="doc.name" t-esc="doc.name" /><th t-else=""><span>-</span></th>
+                                <th>Father Name</th>
+                                <th t-if="doc.father_name" t-esc="doc.father_name" /><th t-else=""><span>-</span></th>
+                            </tr>
+
+                            <tr>
+                                <th>Designation</th>
+                                <th t-if="doc.designation_id.designation" t-esc="doc.designation_id.designation"/><th t-else=""><span>-</span></th>
+                                <th>Grade / Scale</th>
+                                <th t-if="doc.bps" t-esc="doc.bps"/><th t-else=""><span>-</span></th>
+                            </tr>
+
+                            <tr>
+                                <th>Mobile 1</th>
+                                <th t-if="doc.mobile1" t-esc="doc.mobile1"/><th t-else=""><span>-</span></th>
+                                <th>Mobile 2</th>
+                                <th t-if="doc.mobile2" t-esc="doc.mobile2"/><th t-else=""><span>-</span></th>
+                            </tr>
+                            <tr>
+                                <th>Email Address</th>
+                                <th t-if="doc.email" t-esc="doc.email"/><th t-else=""><span>-</span></th>
+                                <th>Nationality</th>
+                                <th t-if="doc.nationality" t-esc="doc.nationality"/><th t-else=""><span>-</span></th>
+                            </tr>
+                            <tr>
+                                <th>Date of Birth</th>
+                                <th t-if="doc.date_of_birth" t-esc="doc.date_of_birth"/><th t-else=""><span>-</span></th>
+                                <th>Appointment Date</th>
+                                <th t-if="doc.joining_date" t-esc="doc.joining_date"/><th t-else=""><span>-</span></th>
+                            </tr>
+                            <tr>
+                                <th>Gender</th>
+                                <th t-if="doc.gender" t-esc="doc.gender" /><th t-else=""><span>-</span></th>
+                                <th>Marital Status</th>
+                                <th t-if="doc.status" t-esc="doc.status" /><th t-else=""><span>-</span></th>
+                            </tr>
+                            <tr>
+                                <th >Address</th>
+                                <th t-if="doc.address" t-esc="doc.address" colspan="3" /><th colspan="3" t-else=""><span>-</span></th>
+                            </tr>
+                        </table>
                     </div>
                 </t>
             </t>

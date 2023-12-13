@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from odoo import api, fields, models
+# import phonenumbers
 
 class CDEmployee(models.Model):
     _name = 'cd.employee'
@@ -13,8 +14,8 @@ class CDEmployee(models.Model):
     cnic = fields.Char('CNIC #', required=True)
     date_of_birth = fields.Date('Date of Birth')
     joining_date = fields.Date('Joining Date')
-    mobile1 = fields.Char('Mobile # 1')
-    mobile2 = fields.Char('Mobile # 2')
+    mobile1 = fields.Char('Mobile # 1', limit=12)
+    mobile2 = fields.Char('Mobile # 2', size=12)
     vendor = fields.Char('Vendor #')
     bank_name = fields.Char('Bank Name')
     account = fields.Char('Account #')
@@ -58,3 +59,18 @@ class CDEmployee(models.Model):
     def father_name_in_caps(self):
         if self.father_name:
             self.father_name = str(self.father_name).title()
+
+    @api.onchange('mobile1')
+    def mobile1_number_format(self):
+        if self.mobile1:
+            self.mobile1 = self.mobile1[0:4] + "-" + self.mobile1[4:11]
+
+    @api.onchange('mobile2')
+    def mobile2_number_format(self):
+        if self.mobile2:
+            self.mobile2 = self.mobile2[0:4] + "-" + self.mobile2[4:11]
+
+    @api.onchange('cnic')
+    def _onchange_cnic(self):
+        if self.cnic:
+            self.cnic = f"{self.cnic[:5]}-{self.cnic[5:12]}-{self.cnic[12]}"

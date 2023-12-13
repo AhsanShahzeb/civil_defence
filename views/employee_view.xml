@@ -12,6 +12,7 @@
                 <field name="mobile1" />
                 <field name="designation_id" />
                 <field name="bps" />
+                <field name="image" widget="image" options="{'size': [50, 50]}"/>
             </tree>
         </field>
     </record>
@@ -22,18 +23,19 @@
         <field name="arch" type="xml">
             <form string="cd_employee__form">
                 <sheet>
+                <field name="image" widget="image" class="oe_avatar" />
                     <group>
                         <group>
-                            <field name="personal" />
-                            <field name="name" class="text-capitalize" />
-                            <field name="cnic" />
-                            <field name="designation_id" required='1'/>
+                            <field name="personal" placeholder="Employee Personal #"/>
+                            <field name="name" class="text-capitalize" placeholder="Employee Name"/>
+                            <field name="cnic" widget="phone" placeholder="Employee CNIC #"/>
+                            <field name="designation_id" placeholder="Select Designation" required='1'/>
                             <field name="bps" />
                         </group>
                         <group>
-                            <field name="father_name" class="text-capitalize" />
-                            <field name="mobile1" data-inputmask="'mask': '9999-9999999'"/>
-                            <field name="mobile2" />
+                            <field name="father_name" placeholder="Employee Father Name" class="text-capitalize" />
+                            <field name="mobile1" widget="phone" placeholder="Employee Mobile 1" data-inputmask="'mask': '9999-9999999'"/>
+                            <field name="mobile2" widget="phone" placeholder="Employee Mobile 2"/>
                             <field name="gender" />
                             <field name="children" />
                         </group>
