@@ -8,7 +8,7 @@
     
     <menuitem
         id="employee_root_menu"
-        name="Employee Info"
+        name="Employee"
         parent="civil_defence_root_menu"
         sequence="10"/>
     

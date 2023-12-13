@@ -34,8 +34,13 @@ class CDEmployee(models.Model):
     ], string='Marital Status')
     address = fields.Text('Address')
     image = fields.Image()
-    designation_id = fields.Many2one('cd.position', string='Designation')
+    designation_id = fields.Many2one('cd.position', string='Designation', required=True)
     bps = fields.Char('BPS', related='designation_id.bps')
+    children = fields.Char('Number of Children')
+
+    _sql_constraints = [
+        ("personal_uni", "unique(personal)", "This Employee already exits"),
+    ]
 
     # personal_name = fields.Char(compute='_compute_personal_name')
 
@@ -48,3 +53,8 @@ class CDEmployee(models.Model):
     def name_in_caps(self):
         if self.name:
             self.name = str(self.name).title()
+
+    @api.onchange('father_name')
+    def father_name_in_caps(self):
+        if self.father_name:
+            self.father_name = str(self.father_name).title()

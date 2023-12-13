@@ -12,8 +12,8 @@ class CDOffice(models.Model):
     active = fields.Boolean('Active', default=True)
 
     _sql_constraints = [
-        ("ddo_uni", "UNIQUE (ddo)", "This DDO is already exists"),
-        ("office_name_uni", "UNIQUE (office_name)", "This Office is already exists"),
+        ("ddo_uni", "unique(ddo)", "This DDO is already exits"),
+        ("office_name_uni", "unique(office_name)", "This Office is already exits"),
     ]
 
     @api.onchange('ddo')

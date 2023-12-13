@@ -25,16 +25,17 @@
                     <group>
                         <group>
                             <field name="personal" />
-                            <field name="name"  />
+                            <field name="name" class="text-capitalize" />
                             <field name="cnic" />
                             <field name="designation_id" />
                             <field name="bps" />
                         </group>
                         <group>
-                            <field name="father_name" />
-                            <field name="mobile1" />
+                            <field name="father_name" class="text-capitalize" />
+                            <field name="mobile1" data-inputmask="'mask': '9999-9999999'"/>
                             <field name="mobile2" />
                             <field name="gender" />
+                            <field name="children" />
                         </group>
                     </group>
                     <notebook>
