@@ -5,8 +5,7 @@ from odoo import api, fields, models
 class CDEmployee(models.Model):
     _name = 'cd.employee'
     _description = 'Employee Information'
-    # _rec_name = 'personal_name'
-    _order = 'name desc'
+    _order = 'id desc'
 
     personal = fields.Char('Personal #', required=True)
     name = fields.Char('Name', required=True)
@@ -14,8 +13,8 @@ class CDEmployee(models.Model):
     cnic = fields.Char('CNIC #', required=True)
     date_of_birth = fields.Date('Date of Birth')
     joining_date = fields.Date('Joining Date')
-    mobile1 = fields.Char('Mobile # 1', limit=12)
-    mobile2 = fields.Char('Mobile # 2', size=12)
+    mobile1 = fields.Char('Mobile # 1')
+    mobile2 = fields.Char('Mobile # 2')
     vendor = fields.Char('Vendor #')
     bank_name = fields.Char('Bank Name')
     account = fields.Char('Account #')
@@ -38,17 +37,11 @@ class CDEmployee(models.Model):
     designation_id = fields.Many2one('cd.position', string='Designation')
     bps = fields.Char('BPS', related='designation_id.bps')
     children = fields.Char('Number of Children')
+    active = fields.Boolean('Active', default=True)
 
     _sql_constraints = [
         ("personal_uni", "unique(personal)", "This Employee already exits"),
     ]
-
-    # personal_name = fields.Char(compute='_compute_personal_name')
-
-    # @api.depends('personal', 'name')
-    # def _compute_personal_name(self):
-    #     for per_name in self:
-    #         per_name.personal_name = str(per_name.personal) + ' ' + str(per_name.name)
 
     @api.onchange('name')
     def name_in_caps(self):
@@ -73,4 +66,9 @@ class CDEmployee(models.Model):
     @api.onchange('cnic')
     def _onchange_cnic(self):
         if self.cnic:
-            self.cnic = f"{self.cnic[:5]}-{self.cnic[5:12]}-{self.cnic[12]}"
+            self.cnic = f"{int(self.cnic[:5])}-{int(self.cnic[5:12])}-{int(self.cnic[12])}"
+
+    @api.onchange('personal')
+    def _onchange_personal(self):
+        if self.personal:
+            self.personal = int(self.personal)

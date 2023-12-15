@@ -7,9 +7,22 @@
         sequence="10"/>
     
     <menuitem
+        id="employee_source_menu"
+        name="Source"
+        parent="civil_defence_root_menu"
+        sequence="10"/>
+
+
+    <menuitem
+        id="salary_code_list_menu"
+        name="Salary Code"
+        parent="civil_defence_root_menu"
+        sequence="30"/>
+
+    <menuitem
         id="employee_root_menu"
         name="Employee"
         parent="civil_defence_root_menu"
-        sequence="10"/>
-    
+        sequence="20"/>
+
 </odoo>

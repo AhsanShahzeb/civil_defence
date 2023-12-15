@@ -7,6 +7,7 @@
             <tree string="Civil_Defence_Offices_Tree" sample="1">
                 <field name="ddo" />
                 <field name="office_name" />
+                <field name="dao" />
             </tree>
         </field>
     </record>
@@ -20,10 +21,11 @@
                     <group>
                         <group>
                             <field name="ddo" style="text-transform: uppercase;"/>
+                            <field name="active" invisible='1' />
                         </group>
                         <group>
                             <field name="office_name" style="text-transform: capitalize;"/>
-                            <field name="active" invisible='1' />
+                            <field name="dao" style="text-transform: capitalize;"/>
                         </group>
                     </group>
                 </sheet>
@@ -36,7 +38,7 @@
         <field name="res_model">cd.office</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="help" type="html">
-            <p>Create Office</p>
+            <p>Create Office !!!</p>
         </field>
     </record>
            

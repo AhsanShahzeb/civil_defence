@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="cd_salary_code_view_tree" model="ir.ui.view">
+        <field name="name">cd.salary.code.view.tree</field>
+        <field name="model">cd.salary.code</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="code" />
+                <field name="description" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="cd_salary_code_action" model="ir.actions.act_window">
+        <field name="name">Salary Code List</field>
+        <field name="res_model">cd.salary.code</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Create Salary !!!</p>
+        </field>
+    </record>
+
+    <menuitem
+        id="cd_salary_code_sub_menu"
+        name="Salary"
+        action="cd_salary_code_action"
+        parent="salary_code_list_menu"
+        sequence="10"/>
+
+</odoo>

@@ -2,3 +2,5 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 cd_office,cd_office,model_cd_office,,1,1,1,1
 cd_position,cd_position,model_cd_position,,1,1,1,1
 cd_employee,cd_employee,model_cd_employee,,1,1,1,1
+cd_salary_code,cd_salary_code,model_cd_salary_code,,1,1,1,1
+access_cd_source_ii,access_cd_source_ii,model_cd_source_ii,,1,1,1,1

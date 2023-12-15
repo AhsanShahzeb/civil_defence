@@ -45,7 +45,7 @@
     </record>
 
     <record id="cd_position_action" model="ir.actions.act_window">
-        <field name="name">Employee Position</field>
+        <field name="name">Positions</field>
         <field name="res_model">cd.position</field>
         <field name="view_mode">tree,form</field>
         <field name="help" type="html">

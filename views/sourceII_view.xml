@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cd_source_ii_view_tree" model="ir.ui.view">
+        <field name="name">cd.source.ii.view.tree</field>
+        <field name="model">cd.source.ii</field>
+        <field name="arch" type="xml">
+            <tree string="">
+                <field name="employee_id" />
+                <field name="personal" />
+                <field name="grade" />
+                <field name="dsignation" /> 
+                <field name="cnic" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="cd_source_ii_view_form" model="ir.ui.view">
+        <field name="name">cd.source.ii.view.form</field>
+        <field name="model">cd.source.ii</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                            <field name="personal" />
+                            <field name="grade" />
+                            <field name="dsignation" /> 
+                            <field name="cnic" />
+                        </group>
+                            <field name="salary_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- <record id="cd_source_ii_view_form_inherit" model="ir.ui.view">
+        <field name="name">cd.salary.code.view.form.inherit</field>
+        <field name="model">cd.salary.code</field>
+        <field name="inherit_id" ref="civil_defence.cd_source_ii_view_form"/>
+        <field name="arch" type="xml">
+            <field name="cnic" position="after">
+                <field name="salary_ids" />
+            </field>
+        </field>
+    </record> -->
+
+    <record id="cd_source_ii_action" model="ir.actions.act_window">
+        <field name="name">Source-II</field>
+        <field name="res_model">cd.source.ii</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+           <p>Create Source II</p> 
+        </field>
+    </record>
+
+    <menuitem
+        id="employee_source_sub_menu"
+        name="Source-II"
+        action="cd_source_ii_action"
+        parent="employee_source_menu"
+        sequence="10"/>
+
+</odoo>

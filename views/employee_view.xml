@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <record id="cd_employee_view_search" model="ir.ui.view">
+        <field name="name">cd.employee.view.search</field>
+        <field name="model">cd.employee</field>
+        <field name="arch" type="xml">
+            <search string="">
+                <field name="personal" filter_domain="['|', ('personal', 'ilike', self), ('name', 'ilike', self)]" string="Employee" />
+                <filter name="filter_male" string="Male" domain="[('gender', '=', 'male')]"/>
+                 <separator/>
+                <filter name="filter_female" string="Female" domain="[('gender', '=', 'female')]"/>
+
+                    <group expand="0" string="Group By">
+                        <filter string="Marital Status" name="marital_status" context="{'group_by':'status'}"/>
+                    </group>
+
+                    <searchpanel>
+                        <field name="designation_id" string="Employee" enable_counters="1"/>
+                    </searchpanel>
+            </search>
+        </field>
+    </record>
+
     <record id="cd_employee_view_tree" model="ir.ui.view">
         <field name="name">cd.employee.view.tree</field>
         <field name="model">cd.employee</field>
@@ -12,7 +33,9 @@
                 <field name="mobile1" />
                 <field name="designation_id" />
                 <field name="bps" />
-                <field name="image" widget="image" options="{'size': [50, 50]}"/>
+                <field name="gender" />
+                <field name="status" />
+                <field name="image" widget="image" options="{'size': [25, 25]}"/>
             </tree>
         </field>
     </record>
@@ -28,7 +51,7 @@
                         <group>
                             <field name="personal" placeholder="Employee Personal #"/>
                             <field name="name" class="text-capitalize" placeholder="Employee Name"/>
-                            <field name="cnic" widget="phone" placeholder="Employee CNIC #"/>
+                            <field name="cnic" placeholder="Employee CNIC #"/>
                             <field name="designation_id" placeholder="Select Designation" required='1'/>
                             <field name="bps" />
                         </group>
@@ -38,6 +61,7 @@
                             <field name="mobile2" widget="phone" placeholder="Employee Mobile 2"/>
                             <field name="gender" />
                             <field name="children" />
+                            <field name="active" invisible='1' />
                         </group>
                     </group>
                     <notebook>

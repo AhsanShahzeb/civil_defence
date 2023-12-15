@@ -14,6 +14,8 @@
         'views/office_view.xml',
         'views/position_view.xml',
         'views/employee_view.xml',
+        'views/salary_code_view.xml',
+        'views/sourceII_view.xml',
         'reports/employee_report.xml',
     ],
     'demo': [],
