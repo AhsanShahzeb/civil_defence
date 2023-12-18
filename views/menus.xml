@@ -5,7 +5,7 @@
         id="civil_defence_root_menu"
         name="Civil Defence"
         sequence="10"/>
-    
+
     <menuitem
         id="employee_source_menu"
         name="Source"
@@ -24,5 +24,6 @@
         name="Employee"
         parent="civil_defence_root_menu"
         sequence="20"/>
+
 
 </odoo>

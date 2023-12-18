@@ -23,29 +23,22 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="employee_id" />
+                            <field name="employee_id" required='1' />
                             <field name="personal" />
                             <field name="grade" />
                             <field name="dsignation" /> 
                             <field name="cnic" />
                         </group>
-                            <field name="salary_ids" />
+                            <field name="salary_ids" > 
+                                <tree editable="bottom">
+                                    <field name="code" widget="selection" />
+                                </tree>
+                            </field>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
-
-    <!-- <record id="cd_source_ii_view_form_inherit" model="ir.ui.view">
-        <field name="name">cd.salary.code.view.form.inherit</field>
-        <field name="model">cd.salary.code</field>
-        <field name="inherit_id" ref="civil_defence.cd_source_ii_view_form"/>
-        <field name="arch" type="xml">
-            <field name="cnic" position="after">
-                <field name="salary_ids" />
-            </field>
-        </field>
-    </record> -->
 
     <record id="cd_source_ii_action" model="ir.actions.act_window">
         <field name="name">Source-II</field>

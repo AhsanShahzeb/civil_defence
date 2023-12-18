@@ -52,7 +52,8 @@
                             <field name="personal" placeholder="Employee Personal #"/>
                             <field name="name" class="text-capitalize" placeholder="Employee Name"/>
                             <field name="cnic" placeholder="Employee CNIC #"/>
-                            <field name="designation_id" placeholder="Select Designation" required='1'/>
+                            <field name="designation_id" options="{'no_create_edit' : True, 'no_create' : True, 'no_open' : True}" 
+                                    placeholder="Select Designation" required='1'/>
                             <field name="bps" />
                         </group>
                         <group>
