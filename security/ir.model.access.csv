@@ -4,3 +4,4 @@ cd_position,cd_position,model_cd_position,,1,1,1,1
 cd_employee,cd_employee,model_cd_employee,,1,1,1,1
 cd_salary_code,cd_salary_code,model_cd_salary_code,,1,1,1,1
 access_cd_source_ii,access_cd_source_ii,model_cd_source_ii,,1,1,1,1
+access_cd_source_salary,access_cd_source_salary,model_cd_source_salary,,1,1,1,1
