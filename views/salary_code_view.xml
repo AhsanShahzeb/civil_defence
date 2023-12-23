@@ -11,6 +11,25 @@
         </field>
     </record>
 
+    <record id="cd_salary_code_view_form" model="ir.ui.view">
+        <field name="name">cd.salary.code.view.form</field>
+        <field name="model">cd.salary.code</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="code" />
+                        </group>
+                        <group>
+                            <field name="description" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <record id="cd_salary_code_action" model="ir.actions.act_window">
         <field name="name">Salary Code List</field>
         <field name="res_model">cd.salary.code</field>

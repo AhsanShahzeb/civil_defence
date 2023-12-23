@@ -17,6 +17,7 @@
         'views/salary_code_view.xml',
         'views/sourceII_view.xml',
         'reports/employee_report.xml',
+        'reports/soruceII_report.xml',
     ],
     'demo': [],
     'auto_install': False,

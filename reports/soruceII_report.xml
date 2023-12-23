@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="source__ii__report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <div class="page">
+                    <h5 style="font-style: italic;">Payroll System<br/>Amendment Form<br/>Single Employee Entry</h5>
+                    <table>
+                        <tr>
+                            <td style="width: 180px;"><h3 style="font-style: italic;">Office of the</h3></td>
+                            <td style="width: 1000px;" colspan="6"><h3 style=" border-bottom: 5px double black; font-style: italic; text-align:center">Accountant General Khyber Pakhtunkhwa Peshawar</h3></td>
+                        </tr>
+                        
+                        <tr>
+                            <td style="width: 180px;"><h3 style="font-style: italic;">For the month of</h3></td>
+                            <td style="width: 200px;"><h3 style="border-bottom: 5px double black; font-style: italic; text-align:center">December, 2023</h3></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 180px;"><h3 style="font-style: italic;">DDO Code <span style="font-size: 10px;">(Cost Center)</span></h3></td>
+                            <td style="width: 200px;"><h3 style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;">PR4976</h3></td>
+                            <td style="width: 150px;"><h3 style="font-style: italic;">Description</h3></td>
+                            <td style="width: 700px;" colspan='4'><h3 style="border-bottom: 5px double black; font-style: italic; text-align:center;">Civil Defence Directorate Khyber Pakhtunkhwa Peshawar</h3></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 180px;"><h3 style="font-style: italic;">Personal Number</h3></td>
+                            <td style="width: 200px;">
+                                <h3 t-if="doc.personal" t-esc="doc.personal" style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;" />
+                                <h3 t-else="" style="border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td>
+                            <td style="width: 150px;"><h3 style="font-style: italic;">Employee Name</h3></td>
+                            <td style="width: 300px;">
+                                <h3 t-if="doc.name" t-esc="doc.name" style="border-bottom: 5px double black; font-style: italic; text-align:center;" />
+                                <h3 t-else="" style="border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td>
+                            <td style="width: 150px;"><h3 style="font-style: italic; text-align:center;">CINC #</h3></td>
+                            <td style="width: 180px;">
+                                <h3 t-if="doc.cnic" t-esc="doc.cnic" style="border-bottom: 5px double black; font-style: italic; text-align:center;" />
+                                <h3 t-else="" style="border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td> 
+                        </tr>
+ 
+                        <tr>
+                            <td style="width: 180px;"><h3 style="font-style: italic;">Grade <span style="font-size: 10px;">(Pay Scale Group)</span></h3></td>
+                            <td>
+                                <h3 t-if="doc.grade" t-esc="doc.grade" style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;" />
+                                <h3 t-else="" style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td>
+                            <td style="width: 150px;"><h3 style="font-style: italic;">Designation</h3></td>
+                            <td>
+                                <h3 t-if="doc.dsignation" t-esc="doc.dsignation" style="border-bottom: 5px double black; font-style: italic; text-align:center;"/>
+                                <h3 t-else="" style="border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td>
+
+                            <td style="width: 150px;"><h3 style="font-style: italic; text-align:center;">Position Code</h3></td>
+                            <td>
+                                <h3 style="border-bottom: 5px double black; font-style: italic; text-align:center;"><span>-</span></h3>
+                            </td>
+                        </tr>
+                    </table>
+                    <table border='1'>
+                        <!-- <tr>
+                            <td></td>
+                            <td colspan='2'>
+                                <h4 style="font-style: italic;">General Data Change</h4>
+                            </td>
+                            <td colspan='4'>
+                                <h4 style="font-style: italic;">Change in Payments / Deductions</h4>
+                            </td>
+                        </tr> -->
+                        <tr>
+                            <td style="width: 500px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Description</h3></td>
+                            <td style="width: 150px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Wage Type</h3></td>
+                            <td style="width: 150px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Amount (Rupees)</h3></td>
+                            <td style="width: 420px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Remarks</h3></td>
+                        </tr>
+
+                        <t t-foreach="doc.salaries_ids" t-as="salaries">
+                            <t t-foreach="salaries.salary_id" t-as="salary">
+                                <tr style="line-height: 1.5;">
+                                    <td><h4 t-esc="salary.description" style="font-style: italic; text-align:left; margin:auto;"/> </td>
+                                    <td><h4 t-esc="salary.code" style="font-style: italic; text-align:center; margin:auto;" /></td>
+                                    <td><h4 t-esc="salaries.amount" style="font-style: italic; text-align:center; margin:auto;" /></td>
+                                    <td><h4 t-esc="doc.remarks" style="font-style: italic; text-align:center; margin:auto;" /></td>
+                                </tr>
+                            </t>
+                        </t>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <record id="source__ii__paperformat_Landscape" model="report.paperformat" >
+        <field name="name">Source II</field>
+        <field name="format">Legal</field>
+        <field name="orientation">Landscape</field>
+        <field name="default" eval="False" />
+        <field name="dpi" eval="90" />
+        <field name="margin_top" eval="10" />
+        <field name="margin_right" eval="5" />
+        <field name="margin_bottom" eval="5" />
+        <field name="margin_left" eval="10" />
+        <field name="header_line" eval="False" />
+        <field name="header_spacing" eval="5" />
+        <field name="page_width" eval="0" />
+        <field name="page_height" eval="0" />
+    </record> 
+
+    <record id="source_ii_action_report" model="ir.actions.report">
+        <field name="name">Source II</field>
+        <field name="model">cd.source.ii</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">civil_defence.source__ii__report</field>
+        <field name="report_file">civil_defence.source__ii__report</field>
+        <field name="print_report_name">'%s' % object.name</field>
+        <field name="binding_model_id" ref="civil_defence.model_cd_source_ii"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="source__ii__paperformat_Landscape" />
+    </record>
+
+</odoo>

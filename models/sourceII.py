@@ -12,7 +12,13 @@ class CDSourceII(models.Model):
     grade = fields.Char(related='employee_id.bps')
     dsignation = fields.Char(related='employee_id.designation_id.designation')
     cnic = fields.Char(related='employee_id.cnic')
+    remarks = fields.Text('Remarks')
     salaries_ids = fields.One2many('cd.source.salary', 'source_id', string='Select Salary Head')
+
+    @api.onchange('remarks')
+    def onchange_remarks_title(self):
+        if self.remarks:
+            self.remarks = str(self.remarks).title()
 
 
 class CDSourceSalary(models.Model):
