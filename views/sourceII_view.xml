@@ -6,7 +6,7 @@
         <field name="model">cd.source.ii</field>
         <field name="arch" type="xml">
             <tree string="">
-                <field name="employee_id" />
+                <field name="employee_id" decoration-bf="1" decoration-it='1'/>
                 <field name="personal" />
                 <field name="grade" />
                 <field name="dsignation" /> 
@@ -24,7 +24,9 @@
                     <group>
                         <group>
                             <field name="employee_id" required='1' />
-                            <field name="remarks" />
+                            <field name="office" />
+                            <field name="dao" />
+                            <field name="date" />
                         </group>
                         <group>
                             <field name="personal" />
@@ -32,17 +34,18 @@
                             <field name="dsignation" /> 
                             <field name="cnic" />
                         </group>
-                            <field name="salaries_ids" widget="one2many"> 
-                                <tree editable="bottom">
-                                    <field name="id" widget='handle' />
-                                    <field name="salary_id" options="{'no_create_edit': True, 'no_create' : True, 'no_open' : True}"/>
-                                    <field name="amount" />
-                                </tree>
-                                <form>
-                                    <field name="salary_id" />
-                                    <field name="amount" />
-                                </form>
-                            </field>
+                        <field name="salaries_ids" widget="one2many"> 
+                            <tree editable="bottom">
+                                <field name="id" widget='handle' />
+                                <field name="salary_id" options="{'no_create_edit': True, 'no_create' : True, 'no_open' : True}"/>
+                                <field name="amount" sum="Total"/>
+                                <field name="total" sum="Total" invisible="1" />
+                            </tree>
+                            <form>
+                                <field name="salary_id" />
+                                <field name="amount" />
+                            </form>
+                        </field>
                     </group>
                 </sheet>
             </form>

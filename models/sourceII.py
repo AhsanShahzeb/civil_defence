@@ -14,6 +14,14 @@ class CDSourceII(models.Model):
     cnic = fields.Char(related='employee_id.cnic')
     remarks = fields.Text('Remarks')
     salaries_ids = fields.One2many('cd.source.salary', 'source_id', string='Select Salary Head')
+    
+    office = fields.Many2one('cd.office')
+    ddo = fields.Char(related='office.ddo', readonly=True)
+    office_name = fields.Char(related='office.office_name', readonly=True)
+    dao = fields.Char(related='office.dao', readonly=True)
+    ddo_office = fields.Char(related='office.ddo_office', readonly=True)
+
+    date = fields.Date('Date', default=fields.Date.context_today)
 
     @api.onchange('remarks')
     def onchange_remarks_title(self):
@@ -28,3 +36,10 @@ class CDSourceSalary(models.Model):
     salary_id = fields.Many2one('cd.salary.code', string='Salary')
     amount = fields.Integer('Amount')
     source_id = fields.Many2one('cd.source.ii', string='Source')
+    total = fields.Integer(compute='compute_total_amount')
+
+    @api.depends('amount')
+    def compute_total_amount(self):
+        for record in self:
+            record.total = record.amount
+    

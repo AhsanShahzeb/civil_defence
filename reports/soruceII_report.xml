@@ -9,18 +9,18 @@
                     <table>
                         <tr>
                             <td style="width: 180px;"><h3 style="font-style: italic;">Office of the</h3></td>
-                            <td style="width: 1000px;" colspan="6"><h3 style=" border-bottom: 5px double black; font-style: italic; text-align:center">Accountant General Khyber Pakhtunkhwa Peshawar</h3></td>
+                            <td style="width: 1000px;" colspan="6"><h3 t-esc="doc.dao" style=" border-bottom: 5px double black; font-style: italic; text-align:center" /></td>
                         </tr>
                         
                         <tr>
                             <td style="width: 180px;"><h3 style="font-style: italic;">For the month of</h3></td>
-                            <td style="width: 200px;"><h3 style="border-bottom: 5px double black; font-style: italic; text-align:center">December, 2023</h3></td>
+                            <td style="width: 200px;"><h3 t-esc="doc.date" style="border-bottom: 5px double black; font-style: italic; text-align:center" /></td>
                         </tr>
                         <tr>
                             <td style="width: 180px;"><h3 style="font-style: italic;">DDO Code <span style="font-size: 10px;">(Cost Center)</span></h3></td>
-                            <td style="width: 200px;"><h3 style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;">PR4976</h3></td>
+                            <td style="width: 200px;"><h3 t-esc="doc.ddo" style="border-right: 5px double black; border-bottom: 5px double black; font-style: italic; text-align:center;" /></td>
                             <td style="width: 150px;"><h3 style="font-style: italic;">Description</h3></td>
-                            <td style="width: 700px;" colspan='4'><h3 style="border-bottom: 5px double black; font-style: italic; text-align:center;">Civil Defence Directorate Khyber Pakhtunkhwa Peshawar</h3></td>
+                            <td style="width: 700px;" colspan='4'><h3 t-esc="doc.office_name" style="border-bottom: 5px double black; font-style: italic; text-align:center;" /></td>
                         </tr>
                         <tr>
                             <td style="width: 180px;"><h3 style="font-style: italic;">Personal Number</h3></td>
@@ -59,15 +59,6 @@
                         </tr>
                     </table>
                     <table border='1'>
-                        <!-- <tr>
-                            <td></td>
-                            <td colspan='2'>
-                                <h4 style="font-style: italic;">General Data Change</h4>
-                            </td>
-                            <td colspan='4'>
-                                <h4 style="font-style: italic;">Change in Payments / Deductions</h4>
-                            </td>
-                        </tr> -->
                         <tr>
                             <td style="width: 500px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Description</h3></td>
                             <td style="width: 150px;"><h3 style="font-style: italic; text-align:center; margin:auto;">Wage Type</h3></td>
